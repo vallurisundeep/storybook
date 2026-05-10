@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-image-card',
   imports: [CommonModule],
   templateUrl: './image-card.html',
-  styleUrl: './image-card.scss',
 })
 export class ImageCard {
   @Input() imageUrl: string = 'https://placehold.co/600x400';

@@ -1,0 +1,86 @@
+<footer [class.bg-gray-900]="theme === 'dark'" [class.bg-white]="theme === 'light'"
+    [class.bg-indigo-600]="theme === 'brand'" [class.text-white]="theme === 'dark' || theme === 'brand'"
+    [class.text-gray-900]="theme === 'light'">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        @if (variant === 'default' || variant === 'horizontal') {
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Company</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">About</a></li>
+                    <li><a href="#" class="hover:underline">Careers</a></li>
+                    <li><a href="#" class="hover:underline">Press</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Support</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Help Center</a></li>
+                    <li><a href="#" class="hover:underline">Contact Us</a></li>
+                    <li><a href="#" class="hover:underline">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        }
+
+        @if (variant === 'compact') {
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+                <h3 class="text-base font-semibold mb-2">Company</h3>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:underline">About</a></li>
+                    <li><a href="#" class="hover:underline">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base font-semibold mb-2">Support</h3>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:underline">Help Center</a></li>
+                    <li><a href="#" class="hover:underline">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base font-semibold mb-2">Legal</h3>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:underline">Privacy</a></li>
+                    <li><a href="#" class="hover:underline">Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base font-semibold mb-2">Connect</h3>
+                <div class="flex space-x-4 mt-2">
+                    <a href="#" class="hover:text-indigo-400">🐦</a>
+                    <a href="#" class="hover:text-indigo-400">📘</a>
+                    <a href="#" class="hover:text-indigo-400">💼</a>
+                </div>
+            </div>
+        </div>
+        }
+
+        @if (variant === 'horizontal') {
+        <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-white/10">
+            <div class="text-sm">
+                &copy; 2024 Your Company, Inc. All rights reserved.
+            </div>
+            <div class="flex space-x-6 mt-6 md:mt-0">
+                <a href="#" class="text-sm hover:underline">Privacy</a>
+                <a href="#" class="text-sm hover:underline">Terms</a>
+                <a href="#" class="text-sm hover:underline">Contact</a>
+            </div>
+        </div>
+        }
+
+        @if (variant === 'default') {
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-sm">&copy; 2024 Your Company, Inc. All rights reserved.</p>
+        </div>
+        }
+    </div>
+</footer>
