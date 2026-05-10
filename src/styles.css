@@ -15,7 +15,6 @@ body {
   font-style: 400;
   color: #333;
   font-size: 16px;
-  background-color: #26c6da;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -220,7 +219,8 @@ textarea {
 @font-face {
   font-family: 'percolate';
   src: url('./assets/icon/percolate.eot?-5w3um4');
-  src: url('./assets/icon/percolate.eot?#iefix5w3um4') format('embedded-opentype'),
+  src:
+    url('./assets/icon/percolate.eot?#iefix5w3um4') format('embedded-opentype'),
     url('./assets/icon/percolate.woff?5w3um4') format('woff'),
     url('./assets/icon/percolate.ttf?5w3um4') format('truetype'),
     url('./assets/icon/percolate.svg?5w3um4') format('svg');
