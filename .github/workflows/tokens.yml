@@ -1,0 +1,31 @@
+name: Transform Design Tokens
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'tokens/**'
+
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build tokens
+        run: npm run tokens:build
+
+      - name: Commit generated tokens
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: regenerate design tokens [skip ci]'
+          file_pattern: 'src/styles/tokens/_generated.scss'

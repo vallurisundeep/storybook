@@ -1,0 +1,20 @@
+{
+  "typography": {
+    "body": {
+      "family":     { "value": "{font.family.sans}", "type": "fontFamilies" },
+      "size":       { "value": "{font.size.sm}",     "type": "fontSizes" },
+      "weight":     { "value": "{font.weight.regular}", "type": "fontWeights" },
+      "lineHeight": { "value": "{font.lineHeight.normal}", "type": "lineHeights" }
+    },
+    "heading": {
+      "family":     { "value": "{font.family.sans}", "type": "fontFamilies" },
+      "weight":     { "value": "{font.weight.bold}", "type": "fontWeights" },
+      "lineHeight": { "value": "{font.lineHeight.heading}", "type": "lineHeights" }
+    },
+    "label": {
+      "size":          { "value": "{font.size.xs}",          "type": "fontSizes" },
+      "weight":        { "value": "{font.weight.bold}",      "type": "fontWeights" },
+      "letterSpacing": { "value": "{font.letterSpacing.wide}", "type": "letterSpacing" }
+    }
+  }
+}

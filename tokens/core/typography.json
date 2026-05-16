@@ -1,0 +1,32 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "value": "'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+        "type": "fontFamilies"
+      }
+    },
+    "weight": {
+      "light":   { "value": "300", "type": "fontWeights" },
+      "regular": { "value": "400", "type": "fontWeights" },
+      "bold":    { "value": "800", "type": "fontWeights" }
+    },
+    "size": {
+      "xs":  { "value": "11", "type": "fontSizes" },
+      "sm":  { "value": "14", "type": "fontSizes" },
+      "md":  { "value": "16", "type": "fontSizes" },
+      "lg":  { "value": "20", "type": "fontSizes" },
+      "base": { "value": "100%", "type": "fontSizes" }
+    },
+    "lineHeight": {
+      "tight":  { "value": "1", "type": "lineHeights" },
+      "snug":   { "value": "1.5", "type": "lineHeights" },
+      "normal": { "value": "20", "type": "lineHeights" },
+      "relaxed": { "value": "24", "type": "lineHeights" },
+      "heading": { "value": "40", "type": "lineHeights" }
+    },
+    "letterSpacing": {
+      "wide": { "value": "0.3em", "type": "letterSpacing" }
+    }
+  }
+}

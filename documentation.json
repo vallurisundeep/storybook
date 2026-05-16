@@ -92,74 +92,118 @@
             "templateData": "<router-outlet />"
         },
         {
-            "name": "ImageCard",
-            "id": "component-ImageCard-387dd0483b8a04b90731bc49f76146d841919c40ad3331a1a76feae58b7f22fae87cb2737774d10ca6d331211fe0fa5cb7a22365e61f15f5c51210dddedbcfb3",
-            "file": "src/app/components/image-card/image-card.ts",
+            "name": "ButtonVariant",
+            "id": "component-ButtonVariant-b4995540479930f7a566b3634d81fce3bed015c5ff944c7ba37c63f6a8cce56129bdf1da9e605de676790ccb00c7c3ecb4d371c3f57cefb062dfabf4700d7def",
+            "file": "src/app/components/button-variant/button-variant.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-image-card",
+            "selector": "app-button-variant",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./image-card.html"
+                "./button-variant.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "badgeText",
+                    "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
                     "type": "string",
                     "decorators": []
                 },
                 {
-                    "name": "description",
-                    "defaultValue": "'This is a description of the card. It contains some text.'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 14,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "imageAlt",
-                    "defaultValue": "'Placeholder image'",
+                    "name": "size",
+                    "defaultValue": "'medium'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 12,
-                    "type": "string",
+                    "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 },
                 {
-                    "name": "imageUrl",
-                    "defaultValue": "'https://placehold.co/600x400'",
+                    "name": "variant",
+                    "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
-                    "type": "string",
+                    "type": "\"primary\" | \"secondary\" | \"danger\" | \"outline\" | \"ghost\"",
                     "decorators": []
-                },
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-button-variant',\n  imports: [CommonModule],\n  templateUrl: './button-variant.html',\n})\nexport class ButtonVariant {\n  @Input() label: string = 'Button';\n  @Input() variant: 'primary' | 'secondary' | 'danger' | 'outline' | 'ghost' = 'primary';\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() disabled: boolean = false;\n\n  @Output() onClick = new EventEmitter<Event>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button type=\"button\" (click)=\"onClick.emit($event)\" [disabled]=\"disabled\"\n  class=\"inline-flex items-center justify-center font-medium transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none\"\n  [ngClass]=\"{\n    'bg-indigo-600 text-[#ffffff] hover:bg-indigo-700 focus:ring-indigo-500': variant === 'primary',\n    'bg-slate-200 text-slate-900 hover:bg-slate-300 focus:ring-slate-500': variant === 'secondary',\n    'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500': variant === 'danger',\n    'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-500': variant === 'outline',\n    'bg-transparent text-indigo-600 hover:bg-indigo-100 focus:ring-indigo-500': variant === 'ghost',\n    'h-8 px-3 text-sm': size === 'small',\n    'h-10 px-4 py-2': size === 'medium',\n    'h-12 px-6 text-lg': size === 'large'\n  }\">\n  {{ label }}\n</button>"
+        },
+        {
+            "name": "Footer",
+            "id": "component-Footer-40d0f640b3e423d1d26c9f28fad501b737b2ec8b7f7d6ec6ce321e18ead02fe58d5c306b8a233432cd101b5ef7c3804efcd275daf7f77e0959ecd071c21e996a",
+            "file": "src/app/components/footer/footer.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-footer",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./footer.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
                 {
                     "name": "theme",
                     "defaultValue": "'light'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 10,
                     "type": "\"light\" | \"dark\" | \"brand\"",
-                    "decorators": []
-                },
-                {
-                    "name": "title",
-                    "defaultValue": "'Card Title'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 13,
-                    "type": "string",
                     "decorators": []
                 },
                 {
@@ -167,7 +211,7 @@
                     "defaultValue": "'default'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 11,
                     "type": "\"default\" | \"compact\" | \"horizontal\"",
                     "decorators": []
                 }
@@ -189,8 +233,192 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-image-card',\n  imports: [CommonModule],\n  templateUrl: './image-card.html',\n  styleUrl: './image-card.scss',\n})\nexport class ImageCard {\n  @Input() imageUrl: string = 'https://placehold.co/600x400';\n  @Input() imageAlt: string = 'Placeholder image';\n  @Input() title: string = 'Card Title';\n  @Input() description: string = 'This is a description of the card. It contains some text.';\n  @Input() badgeText?: string;\n  @Input() variant: 'default' | 'compact' | 'horizontal' = 'default';\n  @Input() theme: 'light' | 'dark' | 'brand' = 'light';\n}\n",
-            "styleUrl": "./image-card.scss",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-footer',\n  imports: [CommonModule],\n  templateUrl: './footer.html',\n})\nexport class Footer {\n  @Input() theme: 'light' | 'dark' | 'brand' = 'light';\n  @Input() variant: 'default' | 'compact' | 'horizontal' = 'default';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<footer [class.bg-gray-900]=\"theme === 'dark'\" [class.bg-white]=\"theme === 'light'\"\n    [class.bg-indigo-600]=\"theme === 'brand'\" [class.text-white]=\"theme === 'dark' || theme === 'brand'\"\n    [class.text-gray-900]=\"theme === 'light'\">\n    <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12\">\n        @if (variant === 'default' || variant === 'horizontal') {\n        <div class=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n            <div>\n                <h3 class=\"text-lg font-semibold mb-4\">Company</h3>\n                <ul class=\"space-y-2\">\n                    <li><a href=\"#\" class=\"hover:underline\">About</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Careers</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Press</a></li>\n                </ul>\n            </div>\n            <div>\n                <h3 class=\"text-lg font-semibold mb-4\">Support</h3>\n                <ul class=\"space-y-2\">\n                    <li><a href=\"#\" class=\"hover:underline\">Help Center</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Contact Us</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">FAQ</a></li>\n                </ul>\n            </div>\n            <div>\n                <h3 class=\"text-lg font-semibold mb-4\">Legal</h3>\n                <ul class=\"space-y-2\">\n                    <li><a href=\"#\" class=\"hover:underline\">Privacy Policy</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Terms of Service</a></li>\n                </ul>\n            </div>\n        </div>\n        }\n\n        @if (variant === 'compact') {\n        <div class=\"grid grid-cols-2 md:grid-cols-4 gap-6\">\n            <div>\n                <h3 class=\"text-base font-semibold mb-2\">Company</h3>\n                <ul class=\"space-y-1 text-sm\">\n                    <li><a href=\"#\" class=\"hover:underline\">About</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Careers</a></li>\n                </ul>\n            </div>\n            <div>\n                <h3 class=\"text-base font-semibold mb-2\">Support</h3>\n                <ul class=\"space-y-1 text-sm\">\n                    <li><a href=\"#\" class=\"hover:underline\">Help Center</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Contact</a></li>\n                </ul>\n            </div>\n            <div>\n                <h3 class=\"text-base font-semibold mb-2\">Legal</h3>\n                <ul class=\"space-y-1 text-sm\">\n                    <li><a href=\"#\" class=\"hover:underline\">Privacy</a></li>\n                    <li><a href=\"#\" class=\"hover:underline\">Terms</a></li>\n                </ul>\n            </div>\n            <div>\n                <h3 class=\"text-base font-semibold mb-2\">Connect</h3>\n                <div class=\"flex space-x-4 mt-2\">\n                    <a href=\"#\" class=\"hover:text-indigo-400\">🐦</a>\n                    <a href=\"#\" class=\"hover:text-indigo-400\">📘</a>\n                    <a href=\"#\" class=\"hover:text-indigo-400\">💼</a>\n                </div>\n            </div>\n        </div>\n        }\n\n        @if (variant === 'horizontal') {\n        <div class=\"flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-white/10\">\n            <div class=\"text-sm\">\n                &copy; 2024 Your Company, Inc. All rights reserved.\n            </div>\n            <div class=\"flex space-x-6 mt-6 md:mt-0\">\n                <a href=\"#\" class=\"text-sm hover:underline\">Privacy</a>\n                <a href=\"#\" class=\"text-sm hover:underline\">Terms</a>\n                <a href=\"#\" class=\"text-sm hover:underline\">Contact</a>\n            </div>\n        </div>\n        }\n\n        @if (variant === 'default') {\n        <div class=\"mt-12 pt-8 border-t border-white/10 text-center\">\n            <p class=\"text-sm\">&copy; 2024 Your Company, Inc. All rights reserved.</p>\n        </div>\n        }\n    </div>\n</footer>"
+        },
+        {
+            "name": "Header",
+            "id": "component-Header-21cc9beacb117275dc28005d4b67b447df66dba4731536ce1f74be439cf1da322af0ff0bf21eb74842425d1ac55a931ac9009b4bb06149524901916a1faa25fc",
+            "file": "src/app/components/header/header.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./header.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "user",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "User | null",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onCreateAccount",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogin",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogout",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonVariant"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonVariant } from '../button-variant/button-variant';\n\ntype User = {\n  name: string;\n};\n\n@Component({\n  selector: 'app-header',\n  imports: [CommonModule, ButtonVariant],\n  templateUrl: './header.html',\n})\nexport class Header {\n  @Input() user: User | null = null;\n\n  @Output() onLogin = new EventEmitter<Event>();\n  @Output() onLogout = new EventEmitter<Event>();\n  @Output() onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<header>\n  <div class=\"flex items-center justify-between px-5 py-4 border-b border-gray-200 font-sans bg-white\">\n    <div class=\"flex items-center gap-2\">\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path\n            d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n            fill=\"#91BAF8\"\n          />\n        </g>\n      </svg>\n      <h1 class=\"text-xl font-bold text-gray-800 m-0\">Acme Corp</h1>\n    </div>\n    <div>\n      <div *ngIf=\"user\" class=\"flex items-center gap-3\">\n        <span class=\"text-sm text-gray-700\">\n          Welcome, <b>{{ user.name }}</b>!\n        </span>\n        <app-button-variant\n          size=\"small\"\n          variant=\"outline\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></app-button-variant>\n      </div>\n      <div *ngIf=\"!user\" class=\"flex items-center gap-3\">\n        <app-button-variant\n          size=\"small\"\n          variant=\"ghost\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></app-button-variant>\n        <app-button-variant\n          size=\"small\"\n          variant=\"primary\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></app-button-variant>\n      </div>\n    </div>\n  </div>\n</header>\n"
+        },
+        {
+            "name": "ImageCard",
+            "id": "component-ImageCard-0763f31ef90b093b3124b38cc0028da9c261a1ec45fed9201af542db8b822fb2a658e48417af6848096f3df360d59351f6fcbc7eb8d1175a6d920620803de78e",
+            "file": "src/app/components/image-card/image-card.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-image-card",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./image-card.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "badgeText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "description",
+                    "defaultValue": "'This is a description of the card. It contains some text.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "imageAlt",
+                    "defaultValue": "'Placeholder image'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "imageUrl",
+                    "defaultValue": "'https://placehold.co/600x400'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "theme",
+                    "defaultValue": "'light'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "\"light\" | \"dark\" | \"brand\"",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'Card Title'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'default'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "\"default\" | \"compact\" | \"horizontal\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-image-card',\n  imports: [CommonModule],\n  templateUrl: './image-card.html',\n})\nexport class ImageCard {\n  @Input() imageUrl: string = 'https://placehold.co/600x400';\n  @Input() imageAlt: string = 'Placeholder image';\n  @Input() title: string = 'Card Title';\n  @Input() description: string = 'This is a description of the card. It contains some text.';\n  @Input() badgeText?: string;\n  @Input() variant: 'default' | 'compact' | 'horizontal' = 'default';\n  @Input() theme: 'light' | 'dark' | 'brand' = 'light';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -223,7 +451,19 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "User",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/components/header/header.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 188
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/app/app.config.ts": [
@@ -253,7 +493,21 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/app/components/header/header.ts": [
+                {
+                    "name": "User",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/components/header/header.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 188
+                }
+            ]
+        }
     },
     "routes": {
         "name": "<root>",
@@ -291,6 +545,43 @@
                 "name": "App",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button-variant/button-variant.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/footer/footer.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Footer",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Header",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

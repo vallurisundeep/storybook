@@ -19,7 +19,8 @@
     "test": "ng test",
     "storybook": "ng run taskbox:storybook",
     "build-storybook": "ng run taskbox:build-storybook",
-    "init-msw": "msw init public/"
+    "init-msw": "msw init public/",
+    "tokens:build": "node sd.config.mjs"
   },
   "private": true,
   "dependencies": {
