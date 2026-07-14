@@ -1,314 +1,179 @@
-.ads-datepicker .p-datepicker {
+.ads-field {
   display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.ads-datepicker .p-datepicker-input {
-  padding-right: calc(var(--ads-size-space-300) * 2 + 1rem);
-}
-
-.ads-datepicker .p-datepicker-input-icon-container {
-  background: transparent;
-  border: none;
-  color: var(--ads-color-medium-gray);
-  cursor: pointer;
-  display: flex;
-  padding: 0;
-  position: absolute;
-  right: var(--ads-size-space-300);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.p-datepicker-panel.ads-datepicker-panel {
-  min-width: min(100%, 24rem) !important;
-  width: 24rem;
-  background-color: var(--ads-color-white);
-  border: var(--ads-size-stroke-border) solid var(--ads-color-light-gray);
-  border-radius: var(--ads-size-radius-200);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--ads-color-black), transparent 88%);
+  flex-direction: column;
   font-family: var(--ads-typography-family-sans);
-  margin-top: var(--ads-size-space-100);
-  padding: var(--ads-size-space-300);
-}
-
-.ads-datepicker-panel .p-datepicker-header {
-  align-items: center;
-  border-bottom: var(--ads-size-stroke-border) solid var(--ads-color-light-gray);
-  display: flex;
-  gap: var(--ads-size-space-200);
-  justify-content: space-between;
-  padding-bottom: var(--ads-size-space-200);
-}
-
-.ads-datepicker-panel .p-datepicker-title {
-  display: flex;
   gap: var(--ads-size-space-100);
+  min-width: 0;
 }
 
-.ads-datepicker-panel .p-datepicker-select-month,
-.ads-datepicker-panel .p-datepicker-select-year {
-  background: transparent;
-  border: none;
-  border-radius: var(--ads-size-radius-100);
+.ads-field__label {
   color: var(--ads-color-midnight-blue);
-  cursor: pointer;
-  font-family: inherit;
   font-size: var(--ads-typography-scale-02);
-  font-weight: var(--ads-typography-weight-semibold);
-  padding: var(--ads-size-space-100);
-  transition: background-color 0.25s ease-in-out;
+  font-weight: var(--ads-typography-weight-medium);
+  line-height: 1.4;
 }
 
-.ads-datepicker-panel .p-datepicker-select-month:hover,
-.ads-datepicker-panel .p-datepicker-select-year:hover {
-  background-color: var(--ads-color-light-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-prev-button,
-.ads-datepicker-panel .p-datepicker-next-button {
-  align-items: center;
-  background: transparent;
-  border: none;
-  border-radius: var(--ads-size-radius-full);
+.ads-field__control,
+.ads-field .p-select,
+.ads-field .p-datepicker-input {
+  background-color: var(--ads-color-white);
+  border: var(--ads-size-stroke-border) solid var(--ads-color-light-gray-brand);
+  border-radius: var(--ads-size-radius-200);
   color: var(--ads-color-anthracite-gray);
-  cursor: pointer;
-  display: inline-flex;
-  height: 2rem;
-  justify-content: center;
-  transition: background-color 0.25s ease-in-out;
-  width: 2rem;
-}
-
-.ads-datepicker-panel .p-datepicker-prev-button:hover,
-.ads-datepicker-panel .p-datepicker-next-button:hover {
-  background-color: var(--ads-color-light-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-calendar {
-  border-collapse: collapse;
-  margin-top: var(--ads-size-space-200);
+  font-family: var(--ads-typography-family-sans);
+  font-size: var(--ads-typography-scale-02);
+  line-height: 1.5;
+  padding-block: var(--ads-size-space-200);
+  padding-inline: var(--ads-size-space-300);
+  transition:
+    border-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
   width: 100%;
 }
 
-.ads-datepicker-panel .p-datepicker-calendar th {
+.ads-field__control::placeholder,
+.ads-field .p-datepicker-input::placeholder {
   color: var(--ads-color-medium-gray);
-  font-size: var(--ads-typography-scale-01);
-  font-weight: var(--ads-typography-weight-medium);
-  padding: var(--ads-size-space-100);
-  text-align: center;
-  text-transform: uppercase;
 }
 
-.ads-datepicker-panel .p-datepicker-day-cell {
-  padding: var(--ads-size-space-050);
-  text-align: center;
+.ads-field__control:focus,
+.ads-field .p-select:focus-within,
+.ads-field .p-datepicker-input:focus {
+  border-color: var(--ads-color-light-blue);
+  box-shadow: 0 0 0 var(--ads-size-stroke-focus-ring)
+    color-mix(in srgb, var(--ads-color-light-blue), transparent 60%);
+  outline: none;
 }
 
-.ads-datepicker-panel .p-datepicker-day {
-  align-items: center;
-  border-radius: var(--ads-size-radius-full);
-  color: var(--ads-color-anthracite-gray);
-  cursor: pointer;
-  display: flex;
-  font-size: var(--ads-typography-scale-02);
-  height: 2.25rem;
-  justify-content: center;
-  margin-inline: auto;
-  transition: background-color 0.25s ease-in-out;
-  width: 2.25rem;
+.ads-field--invalid .ads-field__control,
+.ads-field--invalid .p-select,
+.ads-field--invalid .p-datepicker-input {
+  border-color: var(--ads-color-danger-500);
 }
 
-.ads-datepicker-panel .p-datepicker-day:hover {
-  background-color: var(--ads-color-light-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-day-selected,
-.ads-datepicker-panel .p-datepicker-day-selected:hover {
-  background-color: var(--ads-color-surface-brand);
-  color: var(--ads-color-foreground-brand);
-}
-
-.ads-datepicker-panel .p-datepicker-day-selected-range,
-.ads-datepicker-panel .p-datepicker-day-selected-range:hover {
-  background-color: color-mix(in srgb, var(--ads-color-light-blue), transparent 70%);
-  color: var(--ads-color-anthracite-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-today > .p-datepicker-day:not(.p-datepicker-day-selected) {
-  box-shadow: inset 0 0 0 var(--ads-size-stroke-border) var(--ads-color-medium-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-other-month .p-datepicker-day {
+.ads-field--disabled .ads-field__label {
   color: var(--ads-color-medium-gray);
-  opacity: 0.6;
 }
 
-.ads-datepicker-panel .p-datepicker-month-view,
-.ads-datepicker-panel .p-datepicker-year-view {
-  display: grid;
-  gap: var(--ads-size-space-100);
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: var(--ads-size-space-200);
-}
-
-.ads-datepicker-panel .p-datepicker-month,
-.ads-datepicker-panel .p-datepicker-year {
-  border-radius: var(--ads-size-radius-100);
-  color: var(--ads-color-anthracite-gray);
-  cursor: pointer;
-  font-size: var(--ads-typography-scale-02);
-  padding: var(--ads-size-space-200);
-  text-align: center;
-  transition: background-color 0.25s ease-in-out;
-}
-
-.ads-datepicker-panel .p-datepicker-month:hover,
-.ads-datepicker-panel .p-datepicker-year:hover {
-  background-color: var(--ads-color-light-gray);
-}
-
-.ads-datepicker-panel .p-datepicker-month-selected,
-.ads-datepicker-panel .p-datepicker-year-selected {
-  background-color: var(--ads-color-surface-brand);
-  color: var(--ads-color-foreground-brand);
+.ads-field__control:disabled,
+.ads-field .p-select.p-disabled,
+.ads-field .p-datepicker-input:disabled {
+  background-color: color-mix(
+    in srgb,
+    var(--ads-color-light-gray),
+    var(--ads-color-white) 50%
+  );
+  color: var(--ads-color-medium-gray);
+  cursor: not-allowed;
 }
 
 
 
 import type { Meta, StoryObj } from "@storybook/angular";
+import { moduleMetadata } from "@storybook/angular";
 
-import { AdsDatepicker } from "./datepicker";
+import { AdsActionMenu } from "./actionMenu/actionMenu";
+import { AdsDatepicker } from "./datepicker/datepicker";
+import { AdsInput } from "./input/input";
+import { AdsSelect } from "./select/select";
 
-const meta: Meta<AdsDatepicker> = {
-  title: "Components/Forms/Datepicker",
-  component: AdsDatepicker,
-  argTypes: {
-    mode: {
-      control: "select",
-      options: ["single", "range"],
-      description: "Single date or start/end range selection",
-    },
-    disabled: { control: "boolean" },
-    invalid: { control: "boolean" },
-  },
+const meta: Meta = {
+  title: "Components/Forms/Search Example",
+  decorators: [
+    moduleMetadata({
+      imports: [AdsActionMenu, AdsDatepicker, AdsInput, AdsSelect],
+    }),
+  ],
 };
 
 export default meta;
-type Story = StoryObj<AdsDatepicker>;
+type Story = StoryObj;
 
-export const Default: Story = {
-  args: {
-    label: "Start Date",
-  },
-};
-
-export const Range: Story = {
-  args: {
-    label: "Award Date",
-    mode: "range",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: "End Date",
-    disabled: true,
-  },
-};
-
-
-
-
-
-
-import {
-  Component,
-  computed,
-  forwardRef,
-  input,
-  output,
-  ViewEncapsulation,
-} from "@angular/core";
-import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { DatePickerModule } from "primeng/datepicker";
-import { adsFieldId, AdsValueAccessor } from "../valueAccessor";
-
-export type DatepickerMode = "single" | "range";
-
-export type DatepickerValue = Date | Date[] | null;
-
-@Component({
-  selector: "ads-datepicker",
-  standalone: true,
-  imports: [FormsModule, DatePickerModule],
-  encapsulation: ViewEncapsulation.None,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => AdsDatepicker),
-      multi: true,
+export const Search: Story = {
+  render: () => ({
+    props: {
+      crewbases: ["Boston", "New York", "Philadelphia", "Washington"],
+      crafts: ["Engineer", "Conductor", "Assistant Conductor"],
+      statuses: ["Open", "Awarded", "Closed"],
+      actions: [
+        { id: "view", label: "View Details" },
+        { id: "edit", label: "Edit" },
+        { id: "export", label: "Export" },
+      ],
     },
-  ],
-  template: `
-    <div
-      class="ads-field ads-datepicker"
-      [class.ads-field--invalid]="invalid()"
-      [class.ads-field--disabled]="isDisabled()"
-      (focusout)="onTouched()"
-    >
-      @if (label()) {
-        <label class="ads-field__label" [for]="fieldId">{{ label() }}</label>
-      }
-      <p-datepicker
-        [inputId]="fieldId"
-        [selectionMode]="mode() === 'range' ? 'range' : 'single'"
-        dateFormat="mm/dd/yy"
-        [placeholder]="effectivePlaceholder()"
-        [showIcon]="true"
-        iconDisplay="input"
-        [readonlyInput]="mode() === 'range'"
-        [disabled]="isDisabled()"
-        [ngModel]="innerValue()"
-        (ngModelChange)="handleChange($event)"
-        panelStyleClass="ads-datepicker-panel"
-      />
-    </div>
-  `,
-  styleUrls: ["../field.css", "./datepicker.css"],
-})
-export class AdsDatepicker extends AdsValueAccessor<DatepickerValue> {
-  /** Label rendered above the date picker. */
-  label = input<string>();
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 3rem; padding: 1rem;">
+        <div style="max-width: 20rem;">
+          <ads-select label="Crewbase" placeholder="Select Crewbase" [options]="crewbases"></ads-select>
+        </div>
 
-  /** Single date or start/end range selection. Defaults to 'single'. */
-  mode = input<DatepickerMode>("single");
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem;">
+          <ads-input label="Name" placeholder="Name"></ads-input>
+          <ads-input label="SAP ID" placeholder="SAP ID"></ads-input>
+          <ads-select label="Craft" placeholder="Select Craft" [options]="crafts"></ads-select>
+          <ads-datepicker label="Start Date"></ads-datepicker>
+          <ads-datepicker label="End Date"></ads-datepicker>
+        </div>
 
-  /** Placeholder text. Defaults to 'MM/DD/YYYY', or 'Start Date — End Date' in range mode. */
-  placeholder = input<string>();
+        <div style="display: flex; align-items: flex-end; gap: 1.25rem;">
+          <ads-action-menu label="Action" [items]="actions"></ads-action-menu>
+          <div style="flex: 1;">
+            <ads-select label="Crew Base" [options]="crewbases"></ads-select>
+          </div>
+          <div style="flex: 1;">
+            <ads-input label="Bulletin ID" placeholder="Search"></ads-input>
+          </div>
+          <div style="flex: 1;">
+            <ads-select label="Status" [options]="statuses"></ads-select>
+          </div>
+          <div style="flex: 1.5;">
+            <ads-datepicker label="Award Date" mode="range"></ads-datepicker>
+          </div>
+        </div>
+      </div>
+    `,
+  }),
+};
 
-  /** Disables the date picker. */
-  disabled = input<boolean>(false);
 
-  /** Applies the invalid (error) style. */
-  invalid = input<boolean>(false);
 
-  /** Emits the selected date, or [start, end] in range mode. */
-  valueChange = output<DatepickerValue>();
 
-  protected readonly fieldId = adsFieldId("ads-datepicker");
-  protected readonly isDisabled = computed(
-    () => this.disabled() || this.cvaDisabled(),
-  );
-  protected readonly effectivePlaceholder = computed(
-    () =>
-      this.placeholder() ??
-      (this.mode() === "range" ? "Start Date — End Date" : "MM/DD/YYYY"),
-  );
 
-  protected handleChange(value: DatepickerValue): void {
-    this.commitValue(value);
-    this.valueChange.emit(value);
+import { signal } from "@angular/core";
+import type { ControlValueAccessor } from "@angular/forms";
+
+let nextFieldId = 0;
+
+export function adsFieldId(prefix: string): string {
+  nextFieldId += 1;
+  return `${prefix}-${nextFieldId}`;
+}
+
+export abstract class AdsValueAccessor<T> implements ControlValueAccessor {
+  protected readonly innerValue = signal<T | null>(null);
+  protected readonly cvaDisabled = signal(false);
+
+  private onChange: (value: T | null) => void = () => {};
+  protected onTouched: () => void = () => {};
+
+  writeValue(value: T | null): void {
+    this.innerValue.set(value);
+  }
+
+  registerOnChange(fn: (value: T | null) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.cvaDisabled.set(isDisabled);
+  }
+
+  protected commitValue(value: T | null): void {
+    this.innerValue.set(value);
+    this.onChange(value);
   }
 }
