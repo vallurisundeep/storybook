@@ -1,3 +1,219 @@
+.ads-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ads-table .p-datatable-thead > tr > th,
+.ads-table .p-datatable-tbody > tr > td {
+  padding-block: var(--ads-size-space-200);
+  padding-inline: var(--ads-size-space-300);
+}
+
+.ads-table--s .p-datatable-thead > tr > th,
+.ads-table--s .p-datatable-tbody > tr > td {
+  padding-block: var(--ads-size-space-100);
+  padding-inline: var(--ads-size-space-200);
+}
+
+.ads-table--l .p-datatable-thead > tr > th,
+.ads-table--l .p-datatable-tbody > tr > td {
+  padding-block: var(--ads-size-space-300);
+  padding-inline: var(--ads-size-space-400);
+}
+
+.ads-table .p-sortable-column:focus-visible {
+  outline: var(--ads-size-stroke-border) solid var(--ads-color-light-blue);
+  outline-offset: calc(-1 * var(--ads-size-stroke-border));
+}
+
+.ads-table .p-sortable-column-icon,
+.ads-table sorticon svg {
+  display: inline-block;
+  height: 0.875rem;
+  vertical-align: middle;
+  width: 0.875rem;
+}
+
+.ads-table .p-datatable-loading-overlay {
+  align-items: center;
+  background-color: color-mix(in srgb, var(--ads-color-white), transparent 40%);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.ads-table .p-datatable {
+  position: relative;
+}
+
+.ads-table .p-paginator {
+  align-items: center;
+  color: var(--ads-color-hoffman-blue);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--ads-typography-family-sans);
+  font-size: var(--ads-typography-size-02);
+  gap: var(--ads-size-space-100);
+  justify-content: center;
+  padding-block: var(--ads-size-space-200);
+  padding-inline: var(--ads-size-space-300);
+}
+
+.ads-table .p-paginator button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--ads-size-radius-100);
+  color: var(--ads-color-hoffman-blue);
+  cursor: pointer;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  min-width: 2rem;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.ads-table .p-paginator button:hover:not(:disabled),
+.ads-table .p-paginator button:focus-visible {
+  background-color: var(--ads-color-light-gray);
+}
+
+.ads-table .p-paginator button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.ads-table .p-paginator .p-paginator-page-selected {
+  background-color: var(--ads-color-surface-brand);
+  color: var(--ads-color-foreground-brand);
+}
+
+.ads-table .p-paginator svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+
+
+import type { Meta, StoryObj } from "@storybook/angular";
+
+import { AdsTable, TableColumn } from "./table";
+
+const columns: TableColumn[] = [
+  { field: "code", header: "Code", sortable: true },
+  { field: "name", header: "Name", sortable: true },
+  { field: "route", header: "Route" },
+  { field: "status", header: "Status" },
+];
+
+const trains: Record<string, unknown>[] = [
+  { code: "2150", name: "Acela", route: "Boston - Washington", status: "On time" },
+  { code: "91", name: "Silver Star", route: "New York - Miami", status: "Delayed" },
+  { code: "3", name: "Southwest Chief", route: "Chicago - Los Angeles", status: "On time" },
+  { code: "79", name: "Carolinian", route: "New York - Charlotte", status: "Boarding" },
+  { code: "422", name: "Texas Eagle", route: "San Antonio - Chicago", status: "On time" },
+  { code: "7", name: "Empire Builder", route: "Chicago - Seattle", status: "Delayed" },
+  { code: "97", name: "Silver Meteor", route: "New York - Miami", status: "On time" },
+  { code: "50", name: "Cardinal", route: "New York - Chicago", status: "On time" },
+  { code: "58", name: "City of New Orleans", route: "Chicago - New Orleans", status: "Boarding" },
+  { code: "11", name: "Coast Starlight", route: "Seattle - Los Angeles", status: "On time" },
+  { code: "48", name: "Lake Shore Limited", route: "Chicago - New York", status: "On time" },
+  { code: "89", name: "Palmetto", route: "New York - Savannah", status: "Delayed" },
+];
+
+const meta: Meta<AdsTable> = {
+  title: "Components/Table",
+  component: AdsTable,
+  argTypes: {
+    size: {
+      control: "select",
+      options: ["s", "m", "l"],
+      description: "Size of the table cells",
+    },
+    paginator: {
+      control: "boolean",
+      description: "Enables pagination",
+    },
+    striped: {
+      control: "boolean",
+      description: "Alternates the background of even rows",
+    },
+    loading: {
+      control: "boolean",
+      description: "Shows the loading overlay",
+    },
+    emptyMessage: {
+      control: "text",
+      description: "Message shown when the table has no rows",
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<AdsTable>;
+
+export const Default: Story = {
+  args: {
+    value: trains.slice(0, 5),
+    columns,
+  },
+};
+
+export const WithTitle: Story = {
+  args: {
+    value: trains.slice(0, 5),
+    columns,
+    title: "Departures",
+  },
+};
+
+export const Paginated: Story = {
+  args: {
+    value: trains,
+    columns,
+    paginator: true,
+    rows: 5,
+  },
+};
+
+export const Sizes: Story = {
+  render: (args) => ({
+    props: { ...args, value: trains.slice(0, 3), columns },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <ads-table [value]="value" [columns]="columns" size="s" title="Small"></ads-table>
+        <ads-table [value]="value" [columns]="columns" size="m" title="Medium"></ads-table>
+        <ads-table [value]="value" [columns]="columns" size="l" title="Large"></ads-table>
+      </div>
+    `,
+  }),
+};
+
+export const Loading: Story = {
+  args: {
+    value: trains.slice(0, 5),
+    columns,
+    loading: true,
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    value: [],
+    columns,
+    emptyMessage: "No departures scheduled",
+  },
+};
+
+
+
+
+
+
+
+
 import { CommonModule } from "@angular/common";
 import { Component, input, output, ViewEncapsulation } from "@angular/core";
 import { TableModule } from "primeng/table";
@@ -128,3 +344,7 @@ export class AdsTable {
     }
   }
 }
+
+
+
+
