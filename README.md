@@ -149,3 +149,91 @@ Layer 2 — What I found
 Layer 3 — What this means
 
 "The drift we're seeing isn't a people problem — it's a process and tooling problem. Nobody has a system that tells them what exists, what's been approved, and what's the right thing to use. That's exactly what this solution addresses."
+
+1. External Widget Content Configuration and Admin Utility
+The team aims to enable client-specific widget availability from a library of one hundred eighty widgets, exposing only a subset (e.g., 20) per client or client type (e.g., Medicaid, Medicare, employer plans, commercial). The current problem is that manual, code-based changes for each client cause repeated deployments and slower delivery. The impact includes inconsistent client experiences and scalability limits. The proposed solution is a super-admin configurable, config-driven admin flow/utility to manage widget exposure by client and client type, with feature controls to enable or disable capabilities such as “create reports” and dashboards per client. The widget library must be exposed to support selective configuration, and solutions should avoid backend overhauls unless necessary.
+
+Action Items
+
+Design and implement a super-admin, config-driven admin flow to configure widget availability by client and client type; support examples like Medicaid, Medicare, employer plans, and commercial; expose library of one hundred eighty widgets for selective enablement -- [Insert Name]SandeepanJKAK 2026-12-31
+
+
+Define and document feature control rules to enable/disable capabilities (e.g., “create reports,” dashboards) per client; ensure alignment with client types and future rebate content exposure -- [Insert Name] 2026-12-31
+
+
+Provide high-level estimates and a sprint-level plan for the configuration utility and widget exposure work; include considerations for minor UI differences between internal vs. external audiences -- [Insert Name]
+
+2. Landing Page Experience: Config-Driven, Client-Specific
+Client landing pages need to vary by client or client type (e.g., Walmart employer plan vs. health plan), with different content blocks, feature modules, and future AI insights. The current challenge is that landing pages require code changes and deployments for variations, impacting time-to-market and increasing maintenance overhead. The solution is to build a config-driven landing page experience controlled by the same admin utility/feature-control framework, enabling modular composition (e.g., dashboards, small insight containers, BI widgets) and client-level configuration. Integration with the dashboard builder and BI work is required, including a plain canvas where clients’ needed content is placed and configured.
+
+Action Items
+
+Define landing page configuration schema and modules (content blocks, dashboard components, insight containers) to be applied per client/client type; align with admin utility -- [Insert Name]SandeepanJKAK
+
+
+Coordinate with BI/dashboard builder efforts to ensure the landing page can embed reusable components and support a plain canvas placement model -- [Insert Name]Sathish
+
+
+Produce sprint-wise estimates and a delivery plan for the landing page configuration capability, including future AI-driven insights placement -- [Insert Name]
+
+3. Experience Tied to Pods and External vs. Internal Behavior
+An experience is tied to a pod; the interface remains the same for internal and external audiences but behaves differently. The main challenge is scoping effort so that behavior differences are handled primarily via UI/feature toggles rather than backend overhauls. This reduces complexity and isolates changes to configuration and UI behavior.
+
+Action Items
+
+Specify behavior differences between internal and external audiences for the chat experience and related UI; ensure minimal backend impact and include effort in sprint planning -- [Insert Name]
+
+4. Feedback and Enhancement Mechanism (Client and Admin Visibility)
+Current feedback handling is bare minimum. The goal is to build a robust mechanism: capture feedback via in-app form, store it, expose an internal admin role view to review and update statuses, and provide client visibility into submitted feedback and status/resolution. Enhancements should be driven by feedback, and feature exposure (e.g., create reports, dashboards) will expand accordingly. Target dates mentioned include 12:31 and 11:15 for delivering parts of this body of work, ensuring visibility and status tracking for clients and admins.
+
+Action Items
+
+Implement in-app feedback capture tied to client accounts; persist in the database; build internal admin tooling to review, update status (e.g., resolved), and log actions -- [Insert Name] 11:15
+
+
+Build a client-facing feedback portal/view showing submitted feedback items, statuses, and updates; support notifications by internal admins/SEs to clients about resolutions -- [Insert Name] 2026-12-31
+
+
+Define an enhancement intake process linking feedback to capability exposure (e.g., enabling “create reports,” dashboards) and prioritize for release cycles on 11:15 and 12:31 -- [Insert Name] 11:15
+
+
+Enable “create reports” capability for eligible clients via feature controls; evaluate feasibility of related “write reports” and “stories” later; ensure dashboards can be enabled similarly -- [Insert Name] 2026-12-31
+
+5. Accessibility Readiness and Remediation
+Accessibility must meet relevant WA standards for customer needs. The current gap is unknown specific issues until the accessibility team provides feedback. The impact of non-compliance includes blocked deployments and customer dissatisfaction. The plan is to meet the accessibility team, receive findings, and allocate capacity in Sprints 47–51 to remediate issues so they can be closed out promptly.
+
+Action Items
+
+Schedule and conduct a review with the accessibility team; collect actionable findings mapped to WA standard levels -- [Insert Name]
+
+
+Reserve capacity in Sprints 47, 48, 49, 50, 51 to address accessibility feedback and complete remediation -- [Insert Name]
+
+
+Track closure of accessibility issues and verify support for customer-required levels of compliance -- [Insert Name]
+
+6. Rebate Reporting Exposure in Client Experience
+Once rebate reporting becomes available, related curated content should be exposed on client experiences and landing pages. The present dependency is the availability of rebate reporting; the impact is delayed value delivery if not integrated early. The solution is to plan configuration hooks and containers in the landing page/admin utility to enable rebate content exposure quickly upon readiness.
+
+Action Items
+
+Define configuration points and UI containers to expose rebate reporting content on client landing pages; align timing with rebate reporting availability -- [Insert Name]
+
+
+Prepare content curation guidelines and feature flags for enabling rebate reporting per client -- [Insert Name]
+
+AI Suggestions
+
+AI has identified the following issues that were not concluded in the meeting or lack clear action items; please pay attention:
+
+Ownership gaps: Multiple tasks list no explicit executors beyond names referenced for socialization (e.g., Sandeepan, JK, AK, Sathish). Assign a single accountable owner for each action item and clarify supporting roles to avoid delays.
+
+Ambiguous dates and dual milestones: “11:15” and “12:31” were cited as targets without explicit year or scope partitioning. Specify exact scope for each milestone, confirm the year if applicable, and define which features land on 11:15 vs. 12:31 to manage expectations.
+
+Accessibility scope and compliance level: WA standards were mentioned without selecting target compliance level(s) or defining test protocols. Confirm the exact standard level (e.g., WCAG 2.x AA) and finalize the audit plan, tooling, and acceptance criteria before Sprint 47 begins.
+
+Rebate reporting dependency risk: Exposure of rebate content depends on rebate reporting availability with no timeline stated. Establish dependency tracking, a target availability date, and a contingency plan if rebate reporting slips.
+
+Internal vs. external behavior definition: The chat experience and other UI behaviors are assumed to be UI-only differences, but no concrete specification exists. Produce a detailed behavior matrix and validation plan to prevent late discovery of backend needs.
+
+
